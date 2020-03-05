@@ -91,7 +91,7 @@ public class AvoidStaticImportCheckTest
             throws Exception {
         final DefaultConfiguration checkConfig =
             createModuleConfig(AvoidStaticImportCheck.class);
-        checkConfig.addAttribute("excludes", "java.io.File.listRoots");
+        checkConfig.addAttribute("excludes", "java.io.File.listRoots, java.io.File.a");
         // allow the java.io.File.listRoots member imports
         final String[] expected = {
             "25: " + getCheckMessage(MSG_KEY, "javax.swing.WindowConstants.*"),
