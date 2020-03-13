@@ -392,15 +392,14 @@ public class IllegalImportCheck
         for (Pattern pattern : illegalPkgsRegexps) {
             if (pattern.matcher(importText).matches()) {
                 result = true;
-                break;
+                return result;
             }
         }
-        if (!result) {
-            for (Pattern pattern : illegalClassesRegexps) {
-                if (pattern.matcher(importText).matches()) {
-                    result = true;
-                    break;
-                }
+        
+        for (Pattern pattern : illegalClassesRegexps) {
+            if (pattern.matcher(importText).matches()) {
+                result = true;
+                break;
             }
         }
         return result;
